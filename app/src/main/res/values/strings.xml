@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Hop</string>
+    <string name="empty_beer_list">No beers to show</string>
+    <string name="app_icon">Icon of the app</string>
 </resources>
