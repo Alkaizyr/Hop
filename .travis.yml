@@ -2,7 +2,7 @@ language: android
 android:
   components:
     # The BuildTools version
-    - build-tools-26.1.0
+    - build-tools-26.0.1
 
     # The SDK version
     - android-26
