@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.view.View
 import com.getbase.floatingactionbutton.FloatingActionButton
+import com.hop.brewerydb.ui.feed.BeersActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import com.magicalcellar.Beer
 import com.magicalcellar.DBManager
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         var fab2 = (findViewById<View>(R.id.action_search) as FloatingActionButton)
         fab2.setOnClickListener {
-            val intent = Intent(this@MainActivity, SearchActivity::class.java)
+            val intent = Intent(this@MainActivity, BeersActivity::class.java)
             startActivity(intent)
         }
 

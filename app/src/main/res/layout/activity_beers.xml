@@ -6,6 +6,20 @@
   android:layout_height="match_parent"
   tools:context="com.hop.brewerydb.ui.feed.BeersActivity">
 
+  <EditText
+      android:id="@+id/editTextversion"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:hint="Search in BreweryDB"
+      tools:layout_constraintTop_creator="1"
+      tools:layout_constraintRight_creator="1"
+      app:layout_constraintRight_toRightOf="parent"
+      android:layout_margin="5dp"
+      tools:layout_constraintLeft_creator="1"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      />
+
   <android.support.v4.widget.SwipeRefreshLayout
     android:id="@+id/pullToRefresh"
     android:layout_width="0dp"

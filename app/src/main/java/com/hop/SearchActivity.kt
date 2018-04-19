@@ -75,6 +75,9 @@ class SearchActivity : AppCompatActivity() {
 
             override fun afterTextChanged(editable: Editable) {
                 //after the change calling the method and passing the search input
+
+
+
                 filter(editable.toString())
             }
         })
