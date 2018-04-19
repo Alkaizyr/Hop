@@ -23,9 +23,15 @@ class MainActivity : AppCompatActivity() {
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
 
-        var fab = (findViewById<View>(R.id.action_add) as FloatingActionButton)
-        fab.setOnClickListener {
+        var fab1 = (findViewById<View>(R.id.action_add) as FloatingActionButton)
+        fab1.setOnClickListener {
             val intent = Intent(this@MainActivity, AddBeerActivity::class.java)
+            startActivity(intent)
+        }
+
+        var fab2 = (findViewById<View>(R.id.action_search) as FloatingActionButton)
+        fab2.setOnClickListener {
+            val intent = Intent(this@MainActivity, SearchActivity::class.java)
             startActivity(intent)
         }
 
