@@ -3,69 +3,76 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.CardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-
+    <LinearLayout
+        android:id="@+id/item_wrapper_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginVertical="10dp"
-        android:layout_gravity="center_horizontal"
-        app:cardBackgroundColor="@android:color/white"
-        app:cardCornerRadius="0dp"
-        app:cardMaxElevation="1dp"
-        app:cardElevation="0.7dp"
-        app:contentPadding="10dp"
-        app:contentPaddingBottom="0dp"
-        app:cardPreventCornerOverlap="true"
-        app:cardUseCompatPadding="true"
-        android:id="@+id/cardView">
+        android:paddingBottom="32dp"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <android.support.v7.widget.CardView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="10dp"
+            android:layout_gravity="center_horizontal"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="4dp"
+            app:cardMaxElevation="1dp"
+            app:cardElevation="2dp"
+            app:contentPadding="10dp"
+            app:contentPaddingBottom="0dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true"
+            android:id="@+id/cardView">
 
-            <EditText
-                android:id="@+id/edtName"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:hint="Name"
-                android:inputType="textPersonName" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/edtDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:hint="Date"
-                android:inputType="textMultiLine" />
+                <EditText
+                    android:id="@+id/edtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:hint="Name"
+                    android:inputType="textPersonName" />
 
-            <EditText
-                android:id="@+id/edtStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:hint="Style"
-                android:inputType="textMultiLine" />
+                <EditText
+                    android:id="@+id/edtDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="Date"
+                    android:inputType="textMultiLine" />
 
-            <EditText
-                android:id="@+id/edtBrewery"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:hint="Brewery"
-                android:inputType="textMultiLine" />
+                <EditText
+                    android:id="@+id/edtStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="Style"
+                    android:inputType="textMultiLine" />
 
-            <Button
-                android:id="@+id/btAdd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Add" />
-        </LinearLayout>
+                <EditText
+                    android:id="@+id/edtBrewery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="Brewery"
+                    android:inputType="textMultiLine" />
 
-    </android.support.v7.widget.CardView>
+                <Button
+                    android:id="@+id/btAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Add" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
 </ScrollView>
