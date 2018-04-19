@@ -5,9 +5,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.magicalcellar.Beer
+import com.magicalcellar.DBManager
 import kotlinx.android.synthetic.main.adapter_beer.view.*
 
-class BeerAdapter(val items : ArrayList<String>, val context: Context) : RecyclerView.Adapter<ViewHolder>() {
+class BeerAdapter(val items : ArrayList<Beer>, val context: Context) : RecyclerView.Adapter<ViewHolder>() {
+    private var beerList = java.util.ArrayList<Beer>()
 
     // Gets the number of beers in the list
     override fun getItemCount(): Int {
@@ -21,10 +24,10 @@ class BeerAdapter(val items : ArrayList<String>, val context: Context) : Recycle
 
     // Binds each beer in the ArrayList to a view
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
-        holder?.tvBeerName?.text = items.get(position)
-        holder?.tvBrewery?.text = items.get(position)
-        holder?.tvCreationDate?.text = items.get(position)
-        holder?.tvBeerStyle?.text = items.get(position)
+        holder?.tvBeerName?.text = items.get(position).beerName
+        holder?.tvBrewery?.text = items.get(position).brewery
+        holder?.tvCreationDate?.text = items.get(position).creationDate
+        holder?.tvBeerStyle?.text = items.get(position).beerStyle
     }
 }
 
