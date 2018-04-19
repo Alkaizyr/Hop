@@ -1,1 +1,12 @@
 language: android
+android:
+  components:
+    # The BuildTools version
+    - build-tools-26.1.0
+
+    # The SDK version
+    - android-26
+
+    # Specify at least one system image,
+    # if you need to run emulator(s) during your tests
+    - sys-img-armeabi-v7a-android-26
