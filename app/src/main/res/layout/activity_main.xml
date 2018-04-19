@@ -78,11 +78,33 @@
             android:text="@string/empty_beer_list" />
     </android.support.design.widget.CoordinatorLayout>
 
-    <com.getbase.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/multiple_actions"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        app:fab_icon="@drawable/ic_icon" />
+        app:fab_addButtonColorNormal="#fafafa"
+        app:fab_addButtonColorPressed="#f1f1f1"
+        app:fab_addButtonPlusIconColor="#808080" >
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_icon="@drawable/ic_search_black_24dp"
+            app:fab_colorNormal="#fafafa"
+            app:fab_colorPressed="#f1f1f1"
+            app:fab_size="normal"
+            android:id="@+id/action_search" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_icon="@drawable/ic_add_black_24dp"
+            app:fab_colorNormal="#fafafa"
+            app:fab_colorPressed="#f1f1f1"
+            app:fab_size="normal"
+            android:id="@+id/action_add" />
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
 </FrameLayout>

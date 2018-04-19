@@ -9,7 +9,6 @@ import android.view.MenuItem
 import android.view.View
 import com.getbase.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_main.*
-import com.hop.R.id.fab
 import com.magicalcellar.Beer
 import com.magicalcellar.DBManager
 
@@ -19,14 +18,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        var fab: FloatingActionButton
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
 
-        fab = (findViewById<View>(R.id.fab) as FloatingActionButton)
+        var fab = (findViewById<View>(R.id.action_add) as FloatingActionButton)
         fab.setOnClickListener {
             val intent = Intent(this@MainActivity, AddBeerActivity::class.java)
             startActivity(intent)
