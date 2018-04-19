@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -51,7 +52,7 @@ class BeersActivity : AppCompatActivity() {
 
   }
   private fun initializeUi() {
-    beersList.layoutManager = GridLayoutManager(this, 2)
+    beersList.layoutManager = LinearLayoutManager(this)
     beersList.itemAnimator = DefaultItemAnimator()
     beersList.adapter = adapter
   }

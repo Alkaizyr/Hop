@@ -31,9 +31,10 @@
 
     <android.support.v7.widget.RecyclerView
       android:id="@+id/beersList"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:scrollbars="vertical" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
   </android.support.v4.widget.SwipeRefreshLayout>
 
