@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="beerName" type="id" />
+    <item name="beerStyle" type="id" />
+    <item name="beerImage" type="id" />
+</resources>
