@@ -35,6 +35,7 @@ class BeersActivity : AppCompatActivity() {
 
           override fun afterTextChanged(editable: Editable) {
               //after the change calling the method and passing the search input
+              viewModel.onRefresh()
               viewModel.getBeers(1, (editable.toString()))
           }
       })
