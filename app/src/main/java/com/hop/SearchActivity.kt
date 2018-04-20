@@ -9,16 +9,13 @@ import android.text.TextWatcher
 import android.widget.EditText
 
 class SearchActivity : AppCompatActivity() {
+    private var recyclerView: RecyclerView?=null
+    private var editTextversion: EditText?=null
+    private var version: ArrayList<String> = ArrayList()
 
-
-    internal var recyclerView: RecyclerView?=null
-    internal var editTextversion: EditText?=null
-    internal var version: ArrayList<String> = ArrayList<String>()
-
-    var adapter: CustomAdapter?=null
+    private var adapter: CustomAdapter?=null
 
     // Search Functionality in RecyclerView using EditText
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
@@ -38,7 +35,7 @@ class SearchActivity : AppCompatActivity() {
             }
         })
 
-        version = ArrayList<String>()
+        version = ArrayList()
 
         version.add("KitKat")
         version.add("Jelly Bean")
@@ -49,13 +46,13 @@ class SearchActivity : AppCompatActivity() {
         version.add("Eclair")
         version.add("Donut")
 
-        Initialize()
+        initialize()
     }
 
-    private fun Initialize() {
+    private fun initialize() {
 
-        recyclerView = findViewById(R.id.recyclerView) as RecyclerView
-        editTextversion = findViewById(R.id.editTextversion) as EditText
+        recyclerView = findViewById(R.id.recyclerView)
+        editTextversion = findViewById(R.id.editTextversion)
 
         recyclerView?.setHasFixedSize(true)
         recyclerView?.layoutManager = LinearLayoutManager(this)

@@ -1,4 +1,4 @@
-package com.magicalcellar
+package com.hop
 
 import android.content.ContentValues
 import android.content.Context
@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
 
 class DBManager(context: Context) {
-
     private val dbName = "JSABeers"
     private val dbTable = "Beers"
     private val colId = "Id"
@@ -18,38 +17,35 @@ class DBManager(context: Context) {
     private val colBrewery = "Brewery"
     private val dbVersion = 1
 
-    private val CREATE_TABLE_SQL = "CREATE TABLE IF NOT EXISTS " + dbTable + " (" + colId + " INTEGER PRIMARY KEY," + colBeerName + " TEXT, " + colCreationDate + " TEXT, " + colBeerStyle + " TEXT, " + colBrewery + " TEXT);"
+    private val createTableSql = "CREATE TABLE IF NOT EXISTS $dbTable ($colId INTEGER PRIMARY KEY,$colBeerName TEXT, $colCreationDate TEXT, $colBeerStyle TEXT, $colBrewery TEXT);"
     private var db: SQLiteDatabase? = null
 
     fun insert(values: ContentValues): Long {
-        val ID = db!!.insert(dbTable, "", values)
-        return ID
+        return db!!.insert(dbTable, "", values)
     }
 
     fun queryAll(): Cursor {
-        return db!!.rawQuery("select * from " + dbTable, null)
+        return db!!.rawQuery("select * from $dbTable", null)
     }
 
     fun delete(selection: String, selectionArgs: Array<String>): Int {
-        val count = db!!.delete(dbTable, selection, selectionArgs)
-        return count
+        return db!!.delete(dbTable, selection, selectionArgs)
     }
 
     fun update(values: ContentValues, selection: String, selectionargs: Array<String>): Int {
-        val count = db!!.update(dbTable, values, selection, selectionargs)
-        return count
+        return db!!.update(dbTable, values, selection, selectionargs)
     }
 
     inner class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, dbName, null, dbVersion) {
-        var context: Context? = context
+        private var context: Context? = context
 
         override fun onCreate(db: SQLiteDatabase?) {
-            db!!.execSQL(CREATE_TABLE_SQL)
+            db!!.execSQL(createTableSql)
             Toast.makeText(this.context, " database is created", Toast.LENGTH_LONG).show()
         }
 
         override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-            db!!.execSQL("Drop table IF EXISTS " + dbTable)
+            db!!.execSQL("Drop table IF EXISTS $dbTable")
         }
     }
 

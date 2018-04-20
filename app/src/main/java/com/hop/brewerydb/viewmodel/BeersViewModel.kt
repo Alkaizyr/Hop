@@ -11,7 +11,6 @@ import retrofit2.Response
 
 
 class BeersViewModel : ViewModel() {
-
   private val interactor by lazy { App.component.breweryInteractor() }
 
   val errorData = MutableLiveData<Boolean>()
@@ -25,7 +24,6 @@ class BeersViewModel : ViewModel() {
 
   fun onRefresh() {
     pageData.value = 1
-    //getBeers(1)
   }
 
   private fun beersCallback() = object : Callback<BeerResponse> {

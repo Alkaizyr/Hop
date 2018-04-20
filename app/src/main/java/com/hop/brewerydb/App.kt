@@ -1,10 +1,11 @@
 package com.hop.brewerydb
 
+import android.annotation.SuppressLint
 import android.app.Application
 import com.hop.brewerydb.di.AppComponent
 import com.hop.brewerydb.di.DaggerAppComponent
 
-
+@SuppressLint("Registered")
 class App : Application() {
 
   companion object {

@@ -6,9 +6,7 @@ import com.bumptech.glide.Glide
 import com.hop.brewerydb.model.Beer
 import kotlinx.android.synthetic.main.item_beer.view.*
 
-
 class BeerHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
   fun showBeer(beer: Beer): Unit = with(itemView) {
     beerStyle.text = beer.style.name
     beerName.text = beer.name

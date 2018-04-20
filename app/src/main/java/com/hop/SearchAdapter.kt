@@ -15,7 +15,7 @@ class CustomAdapter(private var version: ArrayList<String>?) : RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.tv_versionname.text = version!![position]
+        holder.tvVersionname.text = version!![position]
     }
 
     override fun getItemCount(): Int {
@@ -23,13 +23,7 @@ class CustomAdapter(private var version: ArrayList<String>?) : RecyclerView.Adap
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
-        var tv_versionname: TextView
-
-        init {
-
-            tv_versionname = itemView.findViewById(R.id.tv_versionname) as TextView
-        }
+        var tvVersionname: TextView = itemView.findViewById(R.id.tv_versionname) as TextView
     }
 
     fun filterList(filterdNames: ArrayList<String>) {

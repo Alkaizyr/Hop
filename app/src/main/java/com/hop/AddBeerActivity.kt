@@ -4,7 +4,6 @@ import android.content.ContentValues
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
-import com.magicalcellar.DBManager
 import kotlinx.android.synthetic.main.activity_add_beer.*
 
 class AddBeerActivity : AppCompatActivity() {
@@ -14,7 +13,7 @@ class AddBeerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_beer)
 
-        this.setTitle("New beer")
+        this.title = "New beer"
 
         try {
             val bundle: Bundle = intent.extras
