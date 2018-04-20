@@ -42,13 +42,13 @@ class BeersActivity : AppCompatActivity() {
     initializeUi()
 
     viewModel.errorData.subscribe(this, this::setErrorVisibility)
-    viewModel.loadingData.subscribe(this, this::showLoading)
+//    viewModel.loadingData.subscribe(this, this::showLoading)
     viewModel.pageData.subscribe(this, adapter::clearIfNeeded)
     viewModel.beerData.subscribe(this, adapter::addItems)
 
    // viewModel.getBeers(1, "IPA") // request the data for the first time
 
-    pullToRefresh.setOnRefreshListener(viewModel::onRefresh)
+   // pullToRefresh.setOnRefreshListener(viewModel::onRefresh)
 
   }
   private fun initializeUi() {
@@ -57,9 +57,9 @@ class BeersActivity : AppCompatActivity() {
     beersList.adapter = adapter
   }
 
-  private fun showLoading(isLoading: Boolean) {
-    pullToRefresh.isRefreshing = isLoading
-  }
+//  private fun showLoading(isLoading: Boolean) {
+//    pullToRefresh.isRefreshing = isLoading
+//  }
 
   private fun setErrorVisibility(shouldShow: Boolean) {
     errorView.visibility = if (shouldShow) View.VISIBLE else View.GONE
