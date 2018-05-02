@@ -1,6 +1,9 @@
 package com.hop
 
 import android.content.Context
+import android.content.Intent
+import android.support.design.widget.Snackbar
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -34,4 +37,24 @@ class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
     val tvBrewery = view.tvBrewery!!
     val tvCreationDate = view.tvCreationDate!!
     val tvBeerStyle = view.tvBeerStyle!!
+
+    val context = view.getContext()
+
+    init {
+        view.setOnClickListener { v: View ->
+            val intent = Intent(context, AddBeerActivity::class.java)
+            context.startActivity(intent)
+        }
+    }
+
+    init {
+        view.setOnLongClickListener { v: View ->
+            var position: Int = getAdapterPosition()
+
+            Snackbar.make(v, "Click detected on item $position",
+                    Snackbar.LENGTH_LONG).setAction("Action", null).show()
+
+            true
+        }
+    }
 }

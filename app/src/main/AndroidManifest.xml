@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hop">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -20,8 +20,8 @@
         <activity
             android:name=".AddBeerActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".SearchActivity"></activity>
-        <activity android:name="com.hop.brewerydb.ui.feed.BeersActivity"></activity>
+        <activity android:name=".SearchActivity" />
+        <activity android:name=".brewerydb.ui.feed.BeersActivity" />
     </application>
 
 </manifest>
