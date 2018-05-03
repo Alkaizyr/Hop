@@ -13,7 +13,7 @@ class AddBeerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_beer)
 
-        this.title = "New beer"
+        this.title = "Beer"
 
         try {
             val bundle: Bundle = intent.extras

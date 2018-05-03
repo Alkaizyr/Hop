@@ -74,7 +74,14 @@ class BeerAdapter(private val items : ArrayList<Beer>, private val context: Cont
 
                 when (item!!.itemId) {
                     R.id.editButton -> {
-                        Toast.makeText(context, item.title, Toast.LENGTH_SHORT).show();
+                        val beer = items[layoutPosition]
+                        val intent = Intent(context, AddBeerActivity::class.java)
+                        intent.putExtra("MainActId", beer.id)
+                        intent.putExtra("MainActName", beer.beerName)
+                        intent.putExtra("MainActDate", beer.creationDate)
+                        intent.putExtra("MainActStyle", beer.beerStyle)
+                        intent.putExtra("MainActBrewery", beer.brewery)
+                        context.startActivity(intent)
                     }
                     R.id.removeButton -> {
                         val dbManager = DBManager(this.context!!)
