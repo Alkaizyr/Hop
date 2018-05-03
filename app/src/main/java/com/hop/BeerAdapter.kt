@@ -44,7 +44,16 @@ class BeerAdapter(private val items : ArrayList<Beer>, private val context: Cont
 
         init {
             view.setOnClickListener { v: View ->
-                val intent = Intent(context, AddBeerActivity::class.java)
+//                val intent = Intent(context, LocalBeerInfo::class.java)
+//                context.startActivity(intent)
+
+                val beer = items[layoutPosition]
+                val intent = Intent(context, LocalBeerInfo::class.java)
+                intent.putExtra("MainActId", beer.id)
+                intent.putExtra("MainActName", beer.beerName)
+                intent.putExtra("MainActDate", beer.creationDate)
+                intent.putExtra("MainActStyle", beer.beerStyle)
+                intent.putExtra("MainActBrewery", beer.brewery)
                 context.startActivity(intent)
             }
         }
