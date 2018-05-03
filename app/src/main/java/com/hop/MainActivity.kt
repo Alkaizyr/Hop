@@ -5,14 +5,18 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
+import android.view.MenuItem
 import android.view.View
+import android.widget.PopupMenu
+import android.widget.Toast
 import com.getbase.floatingactionbutton.FloatingActionButton
+import com.hop.R.id.rv_beer_list
 import com.hop.brewerydb.ui.feed.BeersActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
-    private var beerList = java.util.ArrayList<Beer>()
+    private var beerList = ArrayList<Beer>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
     }
 
-    private fun loadQueryAll() {
+    fun loadQueryAll() {
         val dbManager = DBManager(this)
         val cursor = dbManager.queryAll()
 

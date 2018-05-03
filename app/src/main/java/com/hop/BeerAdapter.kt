@@ -6,11 +6,14 @@ import android.support.design.widget.Snackbar
 import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
+import android.widget.Toast
 import kotlinx.android.synthetic.main.adapter_beer.view.*
 
-class BeerAdapter(private val items : ArrayList<Beer>, private val context: Context): RecyclerView.Adapter<ViewHolder>() {
+class BeerAdapter(private val items : ArrayList<Beer>, private val context: Context): RecyclerView.Adapter<BeerAdapter.ViewHolder>() {
 
     // Gets the number of beers in the list
     override fun getItemCount(): Int {
@@ -29,32 +32,62 @@ class BeerAdapter(private val items : ArrayList<Beer>, private val context: Cont
         holder?.tvCreationDate?.text = items[position].creationDate
         holder?.tvBeerStyle?.text = items[position].beerStyle
     }
-}
 
-class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
-    // Holds the TextView that will add each beer to
-    val tvBeerName = view.tvBeerName!!
-    val tvBrewery = view.tvBrewery!!
-    val tvCreationDate = view.tvCreationDate!!
-    val tvBeerStyle = view.tvBeerStyle!!
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        // Holds the TextView that will add each beer to
+        val tvBeerName = view.tvBeerName!!
+        val tvBrewery = view.tvBrewery!!
+        val tvCreationDate = view.tvCreationDate!!
+        val tvBeerStyle = view.tvBeerStyle!!
 
-    val context = view.getContext()
+        val context = view.getContext()
 
-    init {
-        view.setOnClickListener { v: View ->
-            val intent = Intent(context, AddBeerActivity::class.java)
-            context.startActivity(intent)
+        init {
+            view.setOnClickListener { v: View ->
+                val intent = Intent(context, AddBeerActivity::class.java)
+                context.startActivity(intent)
+            }
         }
-    }
 
-    init {
-        view.setOnLongClickListener { v: View ->
-            var position: Int = getAdapterPosition()
+        init {
+            view.setOnLongClickListener { v: View ->
 
-            Snackbar.make(v, "Click detected on item $position",
-                    Snackbar.LENGTH_LONG).setAction("Action", null).show()
+                showPopup(v)
 
-            true
+//            var position: Int = getAdapterPosition()
+//
+//            Snackbar.make(v, "Click detected on item $position",
+//                    Snackbar.LENGTH_LONG).setAction("Action", null).show()
+
+                true
+            }
+        }
+
+        //val mBeer = items[position]
+
+        private fun showPopup(view: View) {
+            var popup: PopupMenu? = null;
+            popup = PopupMenu(context, view)
+            popup.inflate(R.menu.item_menu)
+
+            popup.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item: MenuItem? ->
+
+                when (item!!.itemId) {
+                    R.id.editButton -> {
+                        Toast.makeText(context, item.title, Toast.LENGTH_SHORT).show();
+                    }
+                    R.id.removeButton -> {
+                        val dbManager = DBManager(this.context!!)
+                        val selectionArgs = arrayOf(items[layoutPosition].id.toString())
+                        dbManager.delete("Id=?", selectionArgs)
+                        (context as MainActivity).loadQueryAll()
+                    }
+                }
+
+                true
+            })
+
+            popup.show()
         }
     }
 }
