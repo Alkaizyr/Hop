@@ -1,5 +1,6 @@
 package com.hop
 
+import android.graphics.BitmapFactory
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_local_beer_info.*
@@ -20,6 +21,7 @@ class LocalBeerInfo : AppCompatActivity() {
                 tvCreationDate.setText(bundle.getString("MainActDate"))
                 beerStyle.setText(bundle.getString("MainActStyle"))
                 tvBrewery.setText(bundle.getString("MainActBrewery"))
+                beerImage.setImageBitmap(BitmapFactory.decodeByteArray(bundle.getByteArray("MainActImage"), 0, bundle.getByteArray("MainActImage").size))
             }
         } catch (ex: Exception) {
         }

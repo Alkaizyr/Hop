@@ -60,8 +60,9 @@ class MainActivity : AppCompatActivity() {
                 val date = cursor.getString(cursor.getColumnIndex("Date"))
                 val style = cursor.getString(cursor.getColumnIndex("Style"))
                 val brewery = cursor.getString(cursor.getColumnIndex("Brewery"))
+                val image = cursor.getBlob(cursor.getColumnIndex("Image"))
 
-                beerList.add(Beer(id, name, date, style, brewery))
+                beerList.add(Beer(id, name, date, style, brewery, image))
 
             } while (cursor.moveToNext())
         }

@@ -15,9 +15,10 @@ class DBManager(context: Context) {
     private val colCreationDate = "Date"
     private val colBeerStyle = "Style"
     private val colBrewery = "Brewery"
+    private val colImage = "Image"
     private val dbVersion = 1
 
-    private val createTableSql = "CREATE TABLE IF NOT EXISTS $dbTable ($colId INTEGER PRIMARY KEY,$colBeerName TEXT, $colCreationDate TEXT, $colBeerStyle TEXT, $colBrewery TEXT);"
+    private val createTableSql = "CREATE TABLE IF NOT EXISTS $dbTable ($colId INTEGER PRIMARY KEY,$colBeerName TEXT, $colCreationDate TEXT, $colBeerStyle TEXT, $colBrewery TEXT, $colImage BLOB);"
     private var db: SQLiteDatabase? = null
 
     fun insert(values: ContentValues): Long {

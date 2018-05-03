@@ -12,6 +12,11 @@ import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.Toast
 import kotlinx.android.synthetic.main.adapter_beer.view.*
+import com.hop.R.id.imageView
+import android.graphics.BitmapFactory
+import android.graphics.Bitmap
+
+
 
 class BeerAdapter(private val items : ArrayList<Beer>, private val context: Context): RecyclerView.Adapter<BeerAdapter.ViewHolder>() {
 
@@ -31,6 +36,10 @@ class BeerAdapter(private val items : ArrayList<Beer>, private val context: Cont
         holder?.tvBrewery?.text = items[position].brewery
         holder?.tvCreationDate?.text = items[position].creationDate
         holder?.tvBeerStyle?.text = items[position].beerStyle
+
+        val beerImage = items[position].image
+        val bitmap = BitmapFactory.decodeByteArray(beerImage, 0, beerImage.size)
+        holder?.itemView!!.ivIcon.setImageBitmap(bitmap)
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -54,6 +63,7 @@ class BeerAdapter(private val items : ArrayList<Beer>, private val context: Cont
                 intent.putExtra("MainActDate", beer.creationDate)
                 intent.putExtra("MainActStyle", beer.beerStyle)
                 intent.putExtra("MainActBrewery", beer.brewery)
+                intent.putExtra("MainActImage", beer.image)
                 context.startActivity(intent)
             }
         }
@@ -90,6 +100,7 @@ class BeerAdapter(private val items : ArrayList<Beer>, private val context: Cont
                         intent.putExtra("MainActDate", beer.creationDate)
                         intent.putExtra("MainActStyle", beer.beerStyle)
                         intent.putExtra("MainActBrewery", beer.brewery)
+                        intent.putExtra("MainActImage", beer.image)
                         context.startActivity(intent)
                     }
                     R.id.removeButton -> {
