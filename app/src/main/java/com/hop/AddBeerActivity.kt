@@ -120,7 +120,7 @@ class AddBeerActivity : AppCompatActivity() {
                 val inputStream = contentResolver.openInputStream(uri!!)
 
                 val bitmap = BitmapFactory.decodeStream(inputStream)
-                imageView.setImageBitmap(bitmap)
+                imageView.setImageBitmap(Bitmap.createScaledBitmap(bitmap, bitmap.width/8, bitmap.height/8, true))
 
             } catch (e: FileNotFoundException) {
                 e.printStackTrace()
