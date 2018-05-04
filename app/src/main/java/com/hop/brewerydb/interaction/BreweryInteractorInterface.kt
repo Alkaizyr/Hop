@@ -5,5 +5,5 @@ import retrofit2.Callback
 
 interface BreweryInteractorInterface {
 
-  fun getBeers(page: Int, name: String, callback: Callback<BeerResponse>)
+    fun getBeers(page: Int, name: String, callback: Callback<BeerResponse>)
 }

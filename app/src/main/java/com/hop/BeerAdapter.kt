@@ -2,21 +2,14 @@ package com.hop
 
 import android.content.Context
 import android.content.Intent
-import android.support.design.widget.Snackbar
-import android.support.v4.content.ContextCompat.startActivity
+import android.graphics.BitmapFactory
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.PopupMenu
-import android.widget.Toast
 import kotlinx.android.synthetic.main.adapter_beer.view.*
-import com.hop.R.id.imageView
-import android.graphics.BitmapFactory
-import android.graphics.Bitmap
-
-
 
 class BeerAdapter(private val items : ArrayList<Beer>, private val context: Context): RecyclerView.Adapter<BeerAdapter.ViewHolder>() {
 
@@ -49,13 +42,10 @@ class BeerAdapter(private val items : ArrayList<Beer>, private val context: Cont
         val tvCreationDate = view.tvCreationDate!!
         val tvBeerStyle = view.tvBeerStyle!!
 
-        val context = view.getContext()
+        private val context = view.context
 
         init {
-            view.setOnClickListener { v: View ->
-//                val intent = Intent(context, LocalBeerInfo::class.java)
-//                context.startActivity(intent)
-
+            view.setOnClickListener {
                 val beer = items[layoutPosition]
                 val intent = Intent(context, LocalBeerInfo::class.java)
                 intent.putExtra("MainActId", beer.id)
@@ -70,22 +60,13 @@ class BeerAdapter(private val items : ArrayList<Beer>, private val context: Cont
 
         init {
             view.setOnLongClickListener { v: View ->
-
                 showPopup(v)
-
-//            var position: Int = getAdapterPosition()
-//
-//            Snackbar.make(v, "Click detected on item $position",
-//                    Snackbar.LENGTH_LONG).setAction("Action", null).show()
-
                 true
             }
         }
 
-        //val mBeer = items[position]
-
         private fun showPopup(view: View) {
-            var popup: PopupMenu? = null;
+            val popup: PopupMenu?
             popup = PopupMenu(context, view)
             popup.inflate(R.menu.item_menu)
 

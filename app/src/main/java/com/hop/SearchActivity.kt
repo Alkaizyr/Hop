@@ -91,5 +91,3 @@ class SearchActivity : AppCompatActivity() {
         adapter?.filterList(filterdNames)
     }
 }
-
-

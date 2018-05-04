@@ -8,7 +8,7 @@ import dagger.Component
 @Component(modules = [(InteractionModule::class)])
 @ApplicationScope
 interface AppComponent {
-  fun inject(app: App)
+    fun inject(app: App)
 
-  fun breweryInteractor(): BreweryInteractorInterface
+    fun breweryInteractor(): BreweryInteractorInterface
 }

@@ -8,17 +8,17 @@ import com.hop.brewerydb.di.DaggerAppComponent
 @SuppressLint("Registered")
 class App : Application() {
 
-  companion object {
-    lateinit var instance: App
-      private set
+    companion object {
+        lateinit var instance: App
+            private set
 
-    val component: AppComponent by lazy { DaggerAppComponent.builder().build() }
-  }
+        val component: AppComponent by lazy { DaggerAppComponent.builder().build() }
+    }
 
-  override fun onCreate() {
-    super.onCreate()
+    override fun onCreate() {
+        super.onCreate()
 
-    instance = this
-    component.inject(this)
-  }
+        instance = this
+        component.inject(this)
+    }
 }
