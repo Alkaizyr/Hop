@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import com.getbase.floatingactionbutton.FloatingActionButton
 import com.hop.brewerydb.ui.feed.BeersActivity
@@ -31,6 +33,21 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        editTextversion?.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+
+            }
+
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+
+            }
+
+            override fun afterTextChanged(editable: Editable) {
+                // after the change calling the method and passing the search input
+                filter(editable.toString())
+            }
+        })
+
         rv_beer_list.layoutManager = LinearLayoutManager(this)
 
         loadQueryAll()
@@ -39,6 +56,17 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         loadQueryAll()
         super.onResume()
+    }
+
+    private fun filter(text: String) {
+        val filterdNames = ArrayList<Beer>()
+
+        for (s in beerList) {
+            if (s.beerName!!.toLowerCase().contains(text.toLowerCase())) {
+                filterdNames.add(s)
+            }
+        }
+        rv_beer_list.adapter = BeerAdapter(filterdNames, this)
     }
 
     fun loadQueryAll() {
