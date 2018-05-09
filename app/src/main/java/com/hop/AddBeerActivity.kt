@@ -19,6 +19,8 @@ import com.hop.R.id.*
 import kotlinx.android.synthetic.main.activity_add_beer.*
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
+import java.text.SimpleDateFormat
+import java.util.*
 
 class AddBeerActivity : AppCompatActivity() {
     var id = 0
@@ -30,21 +32,30 @@ class AddBeerActivity : AppCompatActivity() {
 
         this.title = "Beer"
 
+        // Create new beer
+        edtDate.setText(SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date()).toString())
+
         try {
             val bundle: Bundle = intent.extras
             id = bundle.getInt("MainActId", 0)
             if (id != 0) { // Edit beer
                 edtName.setText(bundle.getString("MainActName"))
+                edtIBU.setText(bundle.getString("MainActIBU"))
+                edtABV.setText(bundle.getString("MainActABV"))
                 edtDate.setText(bundle.getString("MainActDate"))
                 edtStyle.setText(bundle.getString("MainActStyle"))
+                edtDescription.setText(bundle.getString("MainActDescription"))
                 edtBrewery.setText(bundle.getString("MainActBrewery"))
                 imageView.setImageBitmap(BitmapFactory.decodeByteArray(bundle.getByteArray("MainActImage"), 0, bundle.getByteArray("MainActImage").size))
-            } else { // Add new beer or import from BreweryDB
+            } else { // Import beer from BreweryDB
                 val mediumImage = bundle.getString("MainActImageMedium")
                 val largeImage = bundle.getString("MainActImageLarge")
-
                 edtName.setText(bundle.getString("MainActName"))
+                edtDate.setText(SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date()).toString())
+                edtIBU.setText(bundle.getString("MainActIBU"))
+                edtABV.setText(bundle.getString("MainActABV"))
                 edtStyle.setText(bundle.getString("MainActStyle"))
+                edtDescription.setText(bundle.getString("MainActDescription"))
                 if (mediumImage.isNotBlank()) {
                     Glide.with(this).load(mediumImage).into(imageView)
                 }
@@ -69,8 +80,11 @@ class AddBeerActivity : AppCompatActivity() {
             val values = ContentValues()
             values.put("Name", edtName.text.toString())
             values.put("Date", edtDate.text.toString())
+            values.put("IBU", edtIBU.text.toString())
+            values.put("ABV", edtABV.text.toString())
             values.put("Style", edtStyle.text.toString())
             values.put("Brewery", edtBrewery.text.toString())
+            values.put("Description", edtDescription.text.toString())
             values.put("Image", imageViewToByte(imageView))
 
             if (id == 0) {

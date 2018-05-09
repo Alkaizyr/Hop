@@ -78,11 +78,47 @@
                         tools:ignore="UnusedAttribute"
                         tools:text="@string/sample_beer_style_name" />
 
+                    <TextView
+                        android:id="@+id/beerIBU"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/beerStyle"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="@dimen/beer_text_size"
+                        tools:ignore="UnusedAttribute"
+                        tools:text="20" />
+
+                    <TextView
+                        android:id="@+id/beerABV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/beerIBU"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="@dimen/beer_text_size"
+                        tools:ignore="UnusedAttribute"
+                        tools:text="4.5" />
+
+                    <TextView
+                        android:id="@+id/beerDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/beerABV"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="@dimen/beer_text_size"
+                        tools:ignore="UnusedAttribute"
+                        tools:text="Description" />
+
                     <Button
                         android:id="@+id/btAddFromBreweryDB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/beerStyle"
+                        android:layout_below="@id/beerDescription"
                         android:layout_marginTop="20dp"
                         android:text="Add" />
 

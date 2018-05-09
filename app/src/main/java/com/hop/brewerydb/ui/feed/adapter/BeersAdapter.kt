@@ -6,9 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
-import com.hop.LocalBeerInfo
 import com.hop.R
-import com.hop.R.id.beerImage
 import com.hop.brewerydb.model.Beer
 import com.hop.brewerydb.ui.feed.OnlineBeerInfo
 import kotlinx.android.synthetic.main.item_beer.view.*
@@ -52,12 +50,16 @@ class BeersAdapter : RecyclerView.Adapter<BeersAdapter.BeerHolder>() {
                 val mediumImage = beer.labels.medium
                 val largeImage = beer.labels.large
 
+                if(beer.ibu.isBlank() && beer.style.ibuMax.isNotBlank()) {
+                    beer.ibu = beer.style.ibuMax
+                }
+
                 val intent = Intent(itemView.context, OnlineBeerInfo::class.java)
                 intent.putExtra("MainActName", beer.name)
-//                intent.putExtra("MainActDate", beer.creationDate)
                 intent.putExtra("MainActStyle", beer.style.name)
-  //              intent.putExtra("MainActBrewery", beer.labels)
-
+                intent.putExtra("MainActIBU", beer.ibu)
+                intent.putExtra("MainActABV", beer.abv)
+                intent.putExtra("MainActDescription", beer.description)
                 intent.putExtra("MainActImageLarge", beer.labels.large)
                 intent.putExtra("MainActImageMedium", beer.labels.medium)
                 itemView.context.startActivity(intent)
@@ -67,6 +69,7 @@ class BeersAdapter : RecyclerView.Adapter<BeersAdapter.BeerHolder>() {
         fun showBeer(beer: Beer): Unit = with(itemView) {
             beerStyle.text = beer.style.name
             beerName.text = beer.name
+            beerIBU.text = beer.ibu
 
             val mediumImage = beer.labels.medium
             val largeImage = beer.labels.large

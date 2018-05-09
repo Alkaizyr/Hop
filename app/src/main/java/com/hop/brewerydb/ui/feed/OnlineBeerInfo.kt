@@ -20,9 +20,10 @@ class OnlineBeerInfo : AppCompatActivity() {
         val largeImage = bundle.getString("MainActImageLarge")
 
         beerName.text = bundle.getString("MainActName")
-        //        tvCreationDate.text = bundle.getString("MainActDate")
         beerStyle.text = bundle.getString("MainActStyle")
-        //         tvBrewery.text = bundle.getString("MainActBrewery")
+        beerIBU.text = bundle.getString("MainActIBU")
+        beerABV.text = bundle.getString("MainActABV")
+        beerDescription.text = bundle.getString("MainActDescription")
 
         Glide.with(this).load(if (largeImage.isNotBlank()) {
             largeImage
@@ -34,6 +35,9 @@ class OnlineBeerInfo : AppCompatActivity() {
             val intent = Intent(this, AddBeerActivity::class.java)
             intent.putExtra("MainActName", beerName.text.toString())
             intent.putExtra("MainActStyle", beerStyle.text.toString())
+            intent.putExtra("MainActIBU", beerIBU.text.toString())
+            intent.putExtra("MainActABV", beerABV.text.toString())
+            intent.putExtra("MainActDescription", beerDescription.text.toString())
             intent.putExtra("MainActImageMedium", mediumImage)
             intent.putExtra("MainActImageLarge", largeImage)
             this.startActivity(intent)

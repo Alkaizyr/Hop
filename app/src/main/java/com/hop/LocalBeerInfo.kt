@@ -17,9 +17,12 @@ class LocalBeerInfo : AppCompatActivity() {
             id = bundle.getInt("MainActId", 0)
             if (id != 0) {
                 beerName.text = bundle.getString("MainActName")
-                tvCreationDate.text = bundle.getString("MainActDate")
+                beerDate.text = bundle.getString("MainActDate")
                 beerStyle.text = bundle.getString("MainActStyle")
-                tvBrewery.text = bundle.getString("MainActBrewery")
+                beerBrewery.text = bundle.getString("MainActBrewery")
+                beerIBU.text = bundle.getString("MainActIBU")
+                beerABV.text = bundle.getString("MainActABV")
+                beerDescription.text = bundle.getString("MainActDescription")
                 beerImage.setImageBitmap(BitmapFactory.decodeByteArray(bundle.getByteArray("MainActImage"), 0, bundle.getByteArray("MainActImage").size))
             }
         } catch (ex: Exception) {

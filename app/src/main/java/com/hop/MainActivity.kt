@@ -92,11 +92,14 @@ class MainActivity : AppCompatActivity() {
                 val id = cursor.getInt(cursor.getColumnIndex("Id"))
                 val name = cursor.getString(cursor.getColumnIndex("Name"))
                 val date = cursor.getString(cursor.getColumnIndex("Date"))
+                val ibu = cursor.getString(cursor.getColumnIndex("IBU"))
+                val abv = cursor.getString(cursor.getColumnIndex("ABV"))
                 val style = cursor.getString(cursor.getColumnIndex("Style"))
                 val brewery = cursor.getString(cursor.getColumnIndex("Brewery"))
+                val description = cursor.getString(cursor.getColumnIndex("Description"))
                 val image = cursor.getBlob(cursor.getColumnIndex("Image"))
 
-                beerList.add(Beer(id, name, date, style, brewery, image))
+                beerList.add(Beer(id, name, date, ibu, abv, style, brewery, description, image))
 
             } while (cursor.moveToNext())
         }

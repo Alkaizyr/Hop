@@ -26,7 +26,7 @@ class BeerAdapter(private val items : ArrayList<Beer>, private val context: Cont
     // Binds each beer in the ArrayList to a view
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
         holder?.tvBeerName?.text = items[position].beerName
-        holder?.tvBrewery?.text = items[position].brewery
+        holder?.tvBeerIBU?.text = items[position].beerIBU
         holder?.tvCreationDate?.text = items[position].creationDate
         holder?.tvBeerStyle?.text = items[position].beerStyle
 
@@ -38,7 +38,7 @@ class BeerAdapter(private val items : ArrayList<Beer>, private val context: Cont
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         // Holds the TextView that will add each beer to
         val tvBeerName = view.tvBeerName!!
-        val tvBrewery = view.tvBrewery!!
+        val tvBeerIBU = view.tvBeerIBU!!
         val tvCreationDate = view.tvCreationDate!!
         val tvBeerStyle = view.tvBeerStyle!!
 
@@ -52,7 +52,10 @@ class BeerAdapter(private val items : ArrayList<Beer>, private val context: Cont
                 intent.putExtra("MainActName", beer.beerName)
                 intent.putExtra("MainActDate", beer.creationDate)
                 intent.putExtra("MainActStyle", beer.beerStyle)
+                intent.putExtra("MainActIBU", beer.beerIBU)
+                intent.putExtra("MainActABV", beer.beerABV)
                 intent.putExtra("MainActBrewery", beer.brewery)
+                intent.putExtra("MainActDescription", beer.description)
                 intent.putExtra("MainActImage", beer.image)
                 context.startActivity(intent)
             }
@@ -80,7 +83,10 @@ class BeerAdapter(private val items : ArrayList<Beer>, private val context: Cont
                         intent.putExtra("MainActName", beer.beerName)
                         intent.putExtra("MainActDate", beer.creationDate)
                         intent.putExtra("MainActStyle", beer.beerStyle)
+                        intent.putExtra("MainActIBU", beer.beerIBU)
+                        intent.putExtra("MainActABV", beer.beerABV)
                         intent.putExtra("MainActBrewery", beer.brewery)
+                        intent.putExtra("MainActDescription", beer.description)
                         intent.putExtra("MainActImage", beer.image)
                         context.startActivity(intent)
                     }

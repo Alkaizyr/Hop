@@ -67,38 +67,76 @@
                         tools:text="@string/sample_beer_name" />
 
                     <TextView
-                        android:id="@+id/tvCreationDate"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/beerDate"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/beerName"
                         android:layout_marginTop="10dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                        android:textColor="@color/secondary_text"
-                        tools:text="@string/sample_creation_date" />
-
-                    <TextView
-                        android:id="@+id/tvBrewery"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/tvCreationDate"
-                        android:layout_marginTop="10dp"
                         android:fontFamily="sans-serif-light"
-                        android:textColor="@color/primary_text"
+                        android:textColor="@color/secondary_text"
                         android:textSize="@dimen/beer_text_size"
                         tools:ignore="UnusedAttribute"
-                        tools:text="@string/sample_brewery_name" />
+                        tools:text="24.03.2018" />
 
                     <TextView
                         android:id="@+id/beerStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/tvBrewery"
+                        android:layout_below="@id/beerDate"
                         android:layout_marginTop="10dp"
                         android:fontFamily="sans-serif-light"
                         android:textColor="@color/secondary_text"
                         android:textSize="@dimen/beer_text_size"
                         tools:ignore="UnusedAttribute"
                         tools:text="@string/sample_beer_style_name" />
+
+                    <TextView
+                        android:id="@+id/beerBrewery"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/beerStyle"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="@dimen/beer_text_size"
+                        tools:ignore="UnusedAttribute"
+                        tools:text="Craft Pandas" />
+
+                    <TextView
+                        android:id="@+id/beerIBU"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/beerBrewery"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="@dimen/beer_text_size"
+                        tools:ignore="UnusedAttribute"
+                        tools:text="20" />
+
+                    <TextView
+                        android:id="@+id/beerABV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/beerIBU"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="@dimen/beer_text_size"
+                        tools:ignore="UnusedAttribute"
+                        tools:text="4.5" />
+
+                    <TextView
+                        android:id="@+id/beerDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/beerABV"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="@dimen/beer_text_size"
+                        tools:ignore="UnusedAttribute"
+                        tools:text="Description" />
 
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
