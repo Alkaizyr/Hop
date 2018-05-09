@@ -10,10 +10,12 @@ import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
+import android.support.v4.app.ActivityCompat.startActivityForResult
 import android.support.v7.app.AppCompatActivity
 import android.widget.ImageView
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.hop.R.id.*
 import kotlinx.android.synthetic.main.activity_add_beer.*
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
@@ -43,11 +45,12 @@ class AddBeerActivity : AppCompatActivity() {
 
                 edtName.setText(bundle.getString("MainActName"))
                 edtStyle.setText(bundle.getString("MainActStyle"))
-                Glide.with(this).load(if (largeImage.isNotBlank()) {
-                    largeImage
-                } else {
-                    mediumImage
-                }).into(imageView)
+                if (mediumImage.isNotBlank()) {
+                    Glide.with(this).load(mediumImage).into(imageView)
+                }
+                if (largeImage.isNotBlank()) {
+                    Glide.with(this).load(largeImage).into(imageView)
+                }
             }
         } catch (ex: Exception) {
         }
