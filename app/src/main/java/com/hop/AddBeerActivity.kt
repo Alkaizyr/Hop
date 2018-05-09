@@ -13,6 +13,7 @@ import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import android.widget.ImageView
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_add_beer.*
 import java.io.ByteArrayOutputStream
 import java.io.FileNotFoundException
@@ -30,12 +31,23 @@ class AddBeerActivity : AppCompatActivity() {
         try {
             val bundle: Bundle = intent.extras
             id = bundle.getInt("MainActId", 0)
-            if (id != 0) {
+            if (id != 0) { // Edit beer
                 edtName.setText(bundle.getString("MainActName"))
                 edtDate.setText(bundle.getString("MainActDate"))
                 edtStyle.setText(bundle.getString("MainActStyle"))
                 edtBrewery.setText(bundle.getString("MainActBrewery"))
                 imageView.setImageBitmap(BitmapFactory.decodeByteArray(bundle.getByteArray("MainActImage"), 0, bundle.getByteArray("MainActImage").size))
+            } else { // Add new beer or import from BreweryDB
+                val mediumImage = bundle.getString("MainActImageMedium")
+                val largeImage = bundle.getString("MainActImageLarge")
+
+                edtName.setText(bundle.getString("MainActName"))
+                edtStyle.setText(bundle.getString("MainActStyle"))
+                Glide.with(this).load(if (largeImage.isNotBlank()) {
+                    largeImage
+                } else {
+                    mediumImage
+                }).into(imageView)
             }
         } catch (ex: Exception) {
         }
