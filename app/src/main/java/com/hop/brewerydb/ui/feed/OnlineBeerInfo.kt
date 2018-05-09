@@ -1,9 +1,10 @@
 package com.hop.brewerydb.ui.feed
 
-import android.graphics.BitmapFactory
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.hop.AddBeerActivity
 import com.hop.R
 import kotlinx.android.synthetic.main.activity_online_beer_info.*
 
@@ -12,15 +13,12 @@ class OnlineBeerInfo : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_local_beer_info)
+        setContentView(R.layout.activity_online_beer_info)
 
-//        try {
         val bundle: Bundle = intent.extras
         val mediumImage = bundle.getString("MainActImageMedium")
         val largeImage = bundle.getString("MainActImageLarge")
 
-        //  id = bundle.getInt("MainActId", 0)
-        // if (id != 0) {
         beerName.text = bundle.getString("MainActName")
         //        tvCreationDate.text = bundle.getString("MainActDate")
         beerStyle.text = bundle.getString("MainActStyle")
@@ -32,10 +30,13 @@ class OnlineBeerInfo : AppCompatActivity() {
             mediumImage
         }).into(beerImage)
 
-       // Glide.with(this).load(bundle.getString("MainActImage")).into(beerImage)
-        //      beerImage.setImageBitmap(BitmapFactory.decodeByteArray(bundle.getString("MainActImage").toByteArray(), 0, bundle.getString("MainActImage").toByteArray().size))
-        //          }
-        //} catch (ex: Exception) {
-        //}
+        btAddFromBreweryDB.setOnClickListener {btAddFromBreweryDB
+            val intent = Intent(this, AddBeerActivity::class.java)
+            intent.putExtra("MainActName", beerName.text.toString())
+            intent.putExtra("MainActStyle", beerStyle.text.toString())
+            intent.putExtra("MainActImageMedium", mediumImage)
+            intent.putExtra("MainActImageLarge", largeImage)
+            this.startActivity(intent)
+        }
     }
 }
