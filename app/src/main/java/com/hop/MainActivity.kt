@@ -1,5 +1,6 @@
 package com.hop
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -8,6 +9,7 @@ import android.support.v7.widget.Toolbar
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import com.getbase.floatingactionbutton.FloatingActionButton
 import com.hop.brewerydb.ui.feed.BeersActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -51,6 +53,15 @@ class MainActivity : AppCompatActivity() {
         rv_beer_list.layoutManager = LinearLayoutManager(this)
 
         loadQueryAll()
+
+        btClearSearch.setOnClickListener {
+            // Hide virtual key board when clicking
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(btClearSearch.getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN)
+
+            editTextversion.clearFocus()
+            editTextversion.setText("")
+        }
     }
 
     override fun onResume() {
