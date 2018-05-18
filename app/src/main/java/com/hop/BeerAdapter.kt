@@ -26,7 +26,7 @@ class BeerAdapter(private val items : ArrayList<Beer>, private val context: Cont
     // Binds each beer in the ArrayList to a view
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
         holder?.tvBeerName?.text = items[position].beerName
-        holder?.tvBeerIBU?.text = items[position].beerIBU
+        holder?.tvBeerIBU?.text = "IBU: " + items[position].beerIBU
         holder?.tvCreationDate?.text = items[position].creationDate
         holder?.tvBeerStyle?.text = items[position].beerStyle
 

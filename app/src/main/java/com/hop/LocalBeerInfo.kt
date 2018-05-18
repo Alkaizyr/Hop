@@ -21,7 +21,7 @@ class LocalBeerInfo : AppCompatActivity() {
                 beerStyle.text = bundle.getString("MainActStyle")
                 beerBrewery.text = bundle.getString("MainActBrewery")
                 beerIBU.text = bundle.getString("MainActIBU")
-                beerABV.text = bundle.getString("MainActABV")
+                beerABV.text = bundle.getString("MainActABV") + "%"
                 beerDescription.text = bundle.getString("MainActDescription")
                 beerImage.setImageBitmap(BitmapFactory.decodeByteArray(bundle.getByteArray("MainActImage"), 0, bundle.getByteArray("MainActImage").size))
             }
