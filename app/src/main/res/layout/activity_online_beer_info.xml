@@ -58,60 +58,88 @@
                         tools:src="@mipmap/ic_launcher" />
 
                     <TextView
-                        android:id="@+id/beerName"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/textName"
+                        android:layout_width="90dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/beerImage"
                         android:layout_marginTop="10dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                        android:text="Name: "
+                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+                    <TextView
+                        android:id="@+id/beerName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/textName"
+                        android:layout_alignTop="@+id/textName"
                         tools:text="@string/sample_beer_name" />
+
+                    <TextView
+                        android:id="@+id/textStyle"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/beerName"
+                        android:layout_marginTop="10dp"
+                        android:text="Style: "
+                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
 
                     <TextView
                         android:id="@+id/beerStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/beerName"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="sans-serif-light"
-                        android:textColor="@color/secondary_text"
-                        android:textSize="@dimen/beer_text_size"
-                        tools:ignore="UnusedAttribute"
+                        android:layout_toEndOf="@id/textStyle"
+                        android:layout_alignTop="@+id/textStyle"
                         tools:text="@string/sample_beer_style_name" />
+
+                    <TextView
+                        android:id="@+id/textIBU"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/beerStyle"
+                        android:layout_marginTop="10dp"
+                        android:text="IBU: "
+                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
 
                     <TextView
                         android:id="@+id/beerIBU"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/beerStyle"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="sans-serif-light"
-                        android:textColor="@color/secondary_text"
-                        android:textSize="@dimen/beer_text_size"
-                        tools:ignore="UnusedAttribute"
+                        android:layout_toEndOf="@id/textIBU"
+                        android:layout_alignTop="@+id/textIBU"
                         tools:text="20" />
+
+                    <TextView
+                        android:id="@+id/textABV"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/beerIBU"
+                        android:layout_marginTop="10dp"
+                        android:text="ABV: "
+                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
 
                     <TextView
                         android:id="@+id/beerABV"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/beerIBU"
+                        android:layout_toEndOf="@id/textABV"
+                        android:layout_alignTop="@+id/textABV"
+                        tools:text="4.5%" />
+
+                    <TextView
+                        android:id="@+id/textDescription"
+                        android:layout_width="90dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/beerABV"
                         android:layout_marginTop="10dp"
-                        android:fontFamily="sans-serif-light"
-                        android:textColor="@color/secondary_text"
-                        android:textSize="@dimen/beer_text_size"
-                        tools:ignore="UnusedAttribute"
-                        tools:text="4.5" />
+                        android:text="Description: "
+                        android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
 
                     <TextView
                         android:id="@+id/beerDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/beerABV"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="sans-serif-light"
-                        android:textColor="@color/secondary_text"
-                        android:textSize="@dimen/beer_text_size"
-                        tools:ignore="UnusedAttribute"
+                        android:layout_toEndOf="@id/textDescription"
+                        android:layout_alignTop="@+id/textDescription"
                         tools:text="Description" />
 
                     <Button
