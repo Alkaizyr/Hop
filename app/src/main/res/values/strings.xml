@@ -18,21 +18,17 @@
     <string name="title_activity_add_wine">AddWineActivity</string>
 
 
-    <string name="abc_an_amazing_alphabet_book">ABC: An Amazing Alphabet Book!</string>
+    <string name="First_Beer">First Beer</string>
 
-    <string name="are_you_my_mother">Are You My Mother?</string>
-    <string name="where_is_babys_belly_button">Where is Baby\'s Belly Button</string>
-    <string name="on_the_night_you_were_born">On The Night You Were Born</string>
-    <string name="hand_hand_fingers_thumb">Hand Hand Fingers Thumb</string>
-    <string name="the_very_hungry_caterpillar">The Very Hungry Caterpillar</string>
-    <string name="the_going_to_bed_book">The Going To-Bed Book</string>
-    <string name="oh_baby_go_baby">Oh Baby Go Baby</string>
-    <string name="the_tooth_book">The Tooth Book</string>
-    <string name="one_fish_two_fish_red_fish_blue_fish">One Fish, Two Fish, Red Fish, Blue Fish</string>
+    <string name="one_month">1 Month</string>
+    <string name="ten_beers">10 Beers</string>
+    <string name="ten_countries">10 Countries</string>
+    <string name="five_styles">5 Styles</string>
+    <string name="ten_breweries">10 Breweries</string>
+    <string name="three_months">3 Months</string>
+    <string name="ten_styles">10 Styles</string>
+    <string name="twenty_countries">20 Countries</string>
+    <string name="fifty_beers">50 Beers</string>
 
-    <string name="dr_seuss">Dr. Seuss</string>
-    <string name="karen_katz">Karen Katz</string>
-    <string name="nancy_tillman">Nancy Tillman</string>
-    <string name="eric_carle">Eric Carle</string>
-    <string name="sandra_boynton">Sandra Boynton</string>
+    <string name="empty_string"></string>
 </resources>

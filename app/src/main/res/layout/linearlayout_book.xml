@@ -17,7 +17,7 @@
             android:scaleType="centerCrop"/>
 
         <ImageView
-            android:id="@+id/imageview_favorite"
+            android:id="@+id/imageview_favorite1"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/star_disabled"
@@ -26,7 +26,7 @@
     </FrameLayout>
 
     <TextView
-        android:id="@+id/textview_book_name"
+        android:id="@+id/textview_book_name1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="12sp"
@@ -38,7 +38,7 @@
         android:gravity="center_horizontal"/>
 
     <TextView
-        android:id="@+id/textview_book_author"
+        android:id="@+id/textview_book_author1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="12sp"
