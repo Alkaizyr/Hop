@@ -121,6 +121,15 @@
             app:fab_colorNormal="#fafafa"
             app:fab_colorPressed="#f1f1f1"
             app:fab_size="normal"
+            android:id="@+id/action_achievements" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_icon="@drawable/ic_search_black_24dp"
+            app:fab_colorNormal="#fafafa"
+            app:fab_colorPressed="#f1f1f1"
+            app:fab_size="normal"
             android:id="@+id/action_search" />
 
         <com.getbase.floatingactionbutton.FloatingActionButton

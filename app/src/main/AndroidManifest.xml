@@ -22,6 +22,7 @@
             android:name=".AddBeerActivity"
             android:theme="@style/AppTheme" />
         <activity android:name=".SearchActivity" />
+        <activity android:name=".Achievements" />
         <activity android:name=".brewerydb.ui.feed.BeersActivity" />
         <activity android:name=".LocalBeerInfo" />
         <activity android:name=".brewerydb.ui.feed.OnlineBeerInfo"></activity>
