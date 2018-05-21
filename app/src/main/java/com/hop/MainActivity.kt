@@ -11,6 +11,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import com.getbase.floatingactionbutton.FloatingActionButton
+import com.hop.R.id.*
 import com.hop.brewerydb.ui.feed.BeersActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -32,6 +33,12 @@ class MainActivity : AppCompatActivity() {
         val fab2 = (findViewById<View>(R.id.action_search) as FloatingActionButton)
         fab2.setOnClickListener {
             val intent = Intent(this@MainActivity, BeersActivity::class.java)
+            startActivity(intent)
+        }
+
+        val fab3 = (findViewById<View>(R.id.action_achievements) as FloatingActionButton)
+        fab3.setOnClickListener {
+            val intent = Intent(this@MainActivity, Achievements::class.java)
             startActivity(intent)
         }
 

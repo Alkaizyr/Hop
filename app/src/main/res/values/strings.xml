@@ -8,4 +8,27 @@
     <string name="sample_brewery_name">Stony Creek Beer</string>
     <string name="sample_beer_style_name">American IPA</string>
     <string name="sample_creation_date">Tue Jan 11 2011</string>
+
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_add_wine">AddWineActivity</string>
+
+
+    <string name="First_Beer">First Beer</string>
+
+    <string name="one_month">1 Month</string>
+    <string name="ten_beers">10 Beers</string>
+    <string name="ten_countries">10 Countries</string>
+    <string name="five_styles">5 Styles</string>
+    <string name="ten_breweries">10 Breweries</string>
+    <string name="three_months">3 Months</string>
+    <string name="ten_styles">10 Styles</string>
+    <string name="twenty_countries">20 Countries</string>
+    <string name="fifty_beers">50 Beers</string>
+
+    <string name="empty_string"></string>
 </resources>
