@@ -47,8 +47,6 @@ class BeersAdapter : RecyclerView.Adapter<BeersAdapter.BeerHolder>() {
         init {
             itemView.setOnClickListener {
                 val beer = beers[layoutPosition]
-                val mediumImage = beer.labels.medium
-                val largeImage = beer.labels.large
 
                 if(beer.ibu.isBlank() && beer.style.ibuMax.isNotBlank()) {
                     beer.ibu = beer.style.ibuMax
@@ -69,7 +67,6 @@ class BeersAdapter : RecyclerView.Adapter<BeersAdapter.BeerHolder>() {
         fun showBeer(beer: Beer): Unit = with(itemView) {
             beerStyle.text = beer.style.name
             beerName.text = beer.name
-            beerIBU.text = beer.ibu
 
             val mediumImage = beer.labels.medium
             val largeImage = beer.labels.large
