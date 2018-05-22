@@ -7,8 +7,11 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import android.view.LayoutInflater
 import android.widget.ImageView
-import com.bumptech.glide.Glide.init
 import java.util.*
+import android.content.pm.PackageManager
+import android.content.pm.PackageInfo
+import java.time.LocalDateTime
+import kotlin.math.floor
 
 
 class AchievementAdapter// 1
@@ -50,13 +53,17 @@ class AchievementAdapter// 1
 
         // 4
         imageView.setImageResource(item.imageResource)
+
         nameTextView.text = mContext.getString(item.name)
         //authorTextView.text = mContext!!.getString(b.author)
+
+        if (!item.isAchieved) item.isAchieved = getAchieveState(item.name)
+
         if (item.isAchieved) {
             imageView.setImageResource(getOpposite(item.imageResource))
             nameTextView.setTextColor(Color.BLACK)
         }
-            else nameTextView.setTextColor(Color.parseColor("#a8a8a8"))
+            else nameTextView.setTextColor(Color.parseColor("#a3a3a3"))
 
 
         return convertView2
@@ -86,6 +93,34 @@ class AchievementAdapter// 1
         if (getOppositeNullable(img) == null) return R.drawable.ic_reward_brewery_g
         return getOppositeNullable(img)!!
 
+    }
+
+    fun getAchieveState(name: Int): Boolean {
+        when (name) {
+            R.string.first_beer -> if (mContext.beerCount != 0) return true
+            R.string.one_month -> {
+                val pm = mContext.getPackageManager()
+                val packageInfo: PackageInfo = pm.getPackageInfo(mContext.packageName, 0)
+
+                val time = packageInfo.firstInstallTime
+                val totalTime = (System.currentTimeMillis() - time) / 1000 / 60 / 60 / 24
+                if (totalTime >= 30) return true
+            }
+            R.string.ten_beers -> if (mContext.beerCount >= 10) return true
+            R.string.five_styles -> if (mContext.stylesCount >= 5) return true
+            R.string.ten_breweries -> if (mContext.breweriesCount >= 10) return true
+            R.string.three_months -> {
+                val pm = mContext.getPackageManager()
+                val packageInfo: PackageInfo = pm.getPackageInfo(mContext.packageName, 0)
+
+                val time = packageInfo.firstInstallTime
+                val totalTime = (System.currentTimeMillis() - time) / 1000 / 60 / 60 / 24
+                if (totalTime >= 60) return true
+            }
+            R.string.ten_styles -> if (mContext.stylesCount >= 10) return true
+            R.string.fifty_beers -> if (mContext.beerCount >= 50) return true
+        }
+        return false
     }
 
 }

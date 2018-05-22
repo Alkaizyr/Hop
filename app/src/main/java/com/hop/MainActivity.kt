@@ -39,6 +39,15 @@ class MainActivity : AppCompatActivity() {
         val fab3 = (findViewById<View>(R.id.action_achievements) as FloatingActionButton)
         fab3.setOnClickListener {
             val intent = Intent(this@MainActivity, Achievements::class.java)
+            intent.putExtra("beer_list", beerList.count())
+            var stylesCount = 0
+            var breweriesCount = 0
+            for (beer in beerList) {
+                if ((beer.beerStyle != null) and  (beer.beerStyle != "")) stylesCount++
+                if ((beer.brewery != null) and  (beer.brewery != "")) breweriesCount++
+            }
+            intent.putExtra("numberOfStyles", stylesCount)
+            intent.putExtra("numberOfBreweries", breweriesCount)
             startActivity(intent)
         }
 
@@ -113,4 +122,5 @@ class MainActivity : AppCompatActivity() {
 
         rv_beer_list.adapter = BeerAdapter(beerList, this)
     }
+
 }

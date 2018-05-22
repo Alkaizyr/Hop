@@ -1,5 +1,6 @@
 package com.hop
 
+//import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -10,17 +11,21 @@ import java.util.ArrayList
 
 class Achievements :  AppCompatActivity() {
 
+    var beerCount = 0
+
+    var stylesCount = 0
+
+    var breweriesCount = 0
+
     val items : Array<GridItem> = arrayOf(
-            GridItem(R.string.First_Beer,       R.string.empty_string, R.drawable.ic_reward_beer_g),
-            GridItem(R.string.one_month,        R.string.empty_string, R.drawable.ic_reward_calendar_g),
-            GridItem(R.string.ten_beers,        R.string.empty_string, R.drawable.ic_reward_beer_g),
-            GridItem(R.string.ten_countries,    R.string.empty_string, R.drawable.ic_reward_country_g),
-            GridItem(R.string.five_styles,      R.string.empty_string, R.drawable.ic_reward_style_g),
-            GridItem(R.string.ten_breweries,    R.string.empty_string, R.drawable.ic_reward_brewery_g),
-            GridItem(R.string.three_months,     R.string.empty_string, R.drawable.ic_reward_calendar_g),
-            GridItem(R.string.ten_styles,       R.string.empty_string, R.drawable.ic_reward_style_g),
-            GridItem(R.string.twenty_countries, R.string.empty_string, R.drawable.ic_reward_country_g),
-            GridItem(R.string.fifty_beers,      R.string.empty_string, R.drawable.ic_reward_beer_g))
+            GridItem(R.string.first_beer,       R.drawable.ic_reward_beer_g),
+            GridItem(R.string.one_month,        R.drawable.ic_reward_calendar_g),
+            GridItem(R.string.ten_beers,        R.drawable.ic_reward_beer_g),
+            GridItem(R.string.five_styles,      R.drawable.ic_reward_style_g),
+            GridItem(R.string.ten_breweries,    R.drawable.ic_reward_brewery_g),
+            GridItem(R.string.three_months,     R.drawable.ic_reward_calendar_g),
+            GridItem(R.string.ten_styles,       R.drawable.ic_reward_style_g),
+            GridItem(R.string.fifty_beers,      R.drawable.ic_reward_beer_g))
 
     private val favoritedBookNamesKey = "favoritedBookNamesKey"
 
@@ -31,19 +36,23 @@ class Achievements :  AppCompatActivity() {
         setTitle("Achievements")
 
         val gridView = (findViewById<View>(R.id.gridview) as GridView)
-        val booksAdapter = AchievementAdapter(this, items)
-        gridView.adapter = booksAdapter
+        val achievementAdapter = AchievementAdapter(this, items)
+        gridView.adapter = achievementAdapter
 
         gridView.onItemClickListener = object : AdapterView.OnItemClickListener {
             override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val book: GridItem = items[position]
-                book.toggleAchieved()
+                //book.toggleAchieved()
 
                 // This tells the GridView to redraw itself
                 // in turn calling your AchievementAdapter's getView method again for each cell
-                booksAdapter.notifyDataSetChanged()
+                //achievementAdapter.notifyDataSetChanged()
             }
         }
+
+        beerCount = intent.extras.getInt("beer_list", 0)
+        stylesCount = intent.extras.getInt("numberOfStyles", 0)
+        breweriesCount = intent.extras.getInt("numberOfBreweries", 0)
 
 
     }
