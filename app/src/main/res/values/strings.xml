@@ -24,11 +24,13 @@
     <string name="ten_beers">10 Beers</string>
     <string name="ten_countries">10 Countries</string>
     <string name="five_styles">5 Styles</string>
+    <string name="twenty_five_beers">25 Beers</string>
     <string name="ten_breweries">10 Breweries</string>
     <string name="three_months">3 Months</string>
     <string name="ten_styles">10 Styles</string>
     <string name="twenty_countries">20 Countries</string>
     <string name="fifty_beers">50 Beers</string>
+    <string name="ten_years_beer">10 Years Old Beer</string>
 
     <string name="empty_string"></string>
 </resources>

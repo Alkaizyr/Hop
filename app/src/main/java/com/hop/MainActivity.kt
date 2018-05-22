@@ -3,6 +3,7 @@ package com.hop
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.SystemClock
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.Toolbar
@@ -14,6 +15,8 @@ import com.getbase.floatingactionbutton.FloatingActionButton
 import com.hop.R.id.*
 import com.hop.brewerydb.ui.feed.BeersActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private var beerList = ArrayList<Beer>()
@@ -42,12 +45,17 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("beer_list", beerList.count())
             var stylesCount = 0
             var breweriesCount = 0
+            var oldBool = false
             for (beer in beerList) {
                 if ((beer.beerStyle != null) and  (beer.beerStyle != "")) stylesCount++
                 if ((beer.brewery != null) and  (beer.brewery != "")) breweriesCount++
+                if ((beer.creationDate != null)and(beer.creationDate!!.length >3) and
+                    (beer.creationDate!!.substring(beer.creationDate!!.length - 3).toInt() > Calendar.getInstance().get(Calendar.YEAR)-9))
+                    oldBool = true
             }
             intent.putExtra("numberOfStyles", stylesCount)
             intent.putExtra("numberOfBreweries", breweriesCount)
+            intent.putExtra("oldbool", oldBool)
             startActivity(intent)
         }
 

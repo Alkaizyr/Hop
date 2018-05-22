@@ -1,5 +1,6 @@
 package com.hop
 
+import android.content.Context
 import android.graphics.Color
 import android.view.View
 import android.view.ViewGroup
@@ -8,10 +9,9 @@ import android.widget.TextView
 import android.view.LayoutInflater
 import android.widget.ImageView
 import java.util.*
-import android.content.pm.PackageManager
 import android.content.pm.PackageInfo
-import java.time.LocalDateTime
-import kotlin.math.floor
+import android.widget.Toast
+import com.bumptech.glide.Glide.init
 
 
 class AchievementAdapter// 1
@@ -48,16 +48,37 @@ class AchievementAdapter// 1
         // 3
         val imageView = convertView2!!.findViewById(R.id.imageview_cover_art) as ImageView
         val nameTextView = convertView2.findViewById(R.id.textview_book_name) as TextView
-        //val authorTextView = convertView2.findViewById(R.id.textview_book_author) as TextView
-        val imageViewFavorite = convertView2.findViewById(R.id.imageview_achieved) as ImageView
+        //val imageViewFavorite = convertView2.findViewById(R.id.imageview_achieved) as ImageView
 
         // 4
         imageView.setImageResource(item.imageResource)
 
         nameTextView.text = mContext.getString(item.name)
-        //authorTextView.text = mContext!!.getString(b.author)
 
-        if (!item.isAchieved) item.isAchieved = getAchieveState(item.name)
+        /*for (itemok in items) {
+            val sharedPref = mContext.getPreferences(Context.MODE_PRIVATE)
+            val savedValue: Boolean = sharedPref.getBoolean(mContext.getString(itemok.name), false)
+            itemok.isAchieved = savedValue
+        }*/
+
+        val sharedPref = mContext.getPreferences(Context.MODE_PRIVATE)
+        val savedValue: Boolean = sharedPref.getBoolean(mContext.getString(item.name), false)
+        item.isAchieved = savedValue
+
+        if (!item.isAchieved) {
+            item.isAchieved = getAchieveState(item.name)
+            if (item.isAchieved) {
+                val myToast = Toast.makeText(mContext, "Achievement Unlocked: " + mContext.getString(item.name), Toast.LENGTH_SHORT)
+                myToast.show()
+                val sharedPref = mContext.getPreferences(Context.MODE_PRIVATE)
+                with (sharedPref.edit()) {
+                    //for (itemok in items) {
+                        putBoolean(mContext.getString(item.name),item.isAchieved)
+                    //}
+                    apply()
+                }
+            }
+        }
 
         if (item.isAchieved) {
             imageView.setImageResource(getOpposite(item.imageResource))
@@ -79,6 +100,7 @@ class AchievementAdapter// 1
         imageOpposites[R.drawable.ic_reward_calendar_g] = R.drawable.ic_reward_calendar_c
         imageOpposites[R.drawable.ic_reward_country_g] = R.drawable.ic_reward_country_c
         imageOpposites[R.drawable.ic_reward_style_g] = R.drawable.ic_reward_style_c
+        imageOpposites[R.drawable.ic_reward_gray] = R.drawable.ic_reward_orange
     }
 
 
@@ -108,6 +130,7 @@ class AchievementAdapter// 1
             }
             R.string.ten_beers -> if (mContext.beerCount >= 10) return true
             R.string.five_styles -> if (mContext.stylesCount >= 5) return true
+            R.string.twenty_five_beers -> if (mContext.beerCount >= 25) return true
             R.string.ten_breweries -> if (mContext.breweriesCount >= 10) return true
             R.string.three_months -> {
                 val pm = mContext.getPackageManager()
@@ -119,6 +142,7 @@ class AchievementAdapter// 1
             }
             R.string.ten_styles -> if (mContext.stylesCount >= 10) return true
             R.string.fifty_beers -> if (mContext.beerCount >= 50) return true
+            R.string.ten_years_beer -> if (mContext.oldBool) return true
         }
         return false
     }
