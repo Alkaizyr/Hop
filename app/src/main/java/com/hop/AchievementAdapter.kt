@@ -11,7 +11,6 @@ import android.widget.ImageView
 import java.util.*
 import android.content.pm.PackageInfo
 import android.widget.Toast
-import com.bumptech.glide.Glide.init
 
 
 class AchievementAdapter// 1
@@ -118,31 +117,25 @@ class AchievementAdapter// 1
     }
 
     fun getAchieveState(name: Int): Boolean {
+        val pm = mContext.getPackageManager()
+        val packageInfo: PackageInfo = pm.getPackageInfo(mContext.packageName, 0)
+
+        val time = packageInfo.firstInstallTime
+        val totalTime = (System.currentTimeMillis() - time) / 1000 / 60 / 60 / 24
+
         when (name) {
             R.string.first_beer -> if (mContext.beerCount != 0) return true
-            R.string.one_month -> {
-                val pm = mContext.getPackageManager()
-                val packageInfo: PackageInfo = pm.getPackageInfo(mContext.packageName, 0)
-
-                val time = packageInfo.firstInstallTime
-                val totalTime = (System.currentTimeMillis() - time) / 1000 / 60 / 60 / 24
-                if (totalTime >= 30) return true
-            }
+            R.string.one_month -> if (totalTime >= 30) return true
             R.string.ten_beers -> if (mContext.beerCount >= 10) return true
             R.string.five_styles -> if (mContext.stylesCount >= 5) return true
             R.string.twenty_five_beers -> if (mContext.beerCount >= 25) return true
             R.string.ten_breweries -> if (mContext.breweriesCount >= 10) return true
-            R.string.three_months -> {
-                val pm = mContext.getPackageManager()
-                val packageInfo: PackageInfo = pm.getPackageInfo(mContext.packageName, 0)
-
-                val time = packageInfo.firstInstallTime
-                val totalTime = (System.currentTimeMillis() - time) / 1000 / 60 / 60 / 24
-                if (totalTime >= 60) return true
-            }
+            R.string.three_months -> if (totalTime >= 60) return true
             R.string.ten_styles -> if (mContext.stylesCount >= 10) return true
             R.string.fifty_beers -> if (mContext.beerCount >= 50) return true
             R.string.ten_years_beer -> if (mContext.oldBool) return true
+            R.string.twenty_five_breweries -> if (mContext.breweriesCount >= 25) return true
+            R.string.one_year -> if (totalTime >= 365) return true
         }
         return false
     }
