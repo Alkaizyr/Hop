@@ -74,6 +74,13 @@ class Achievements :  AppCompatActivity() {
         oldBool = intent.extras.getBoolean("oldbool", false)
         fields_Filled = intent.extras.getBoolean("fieldsFilled", false)
 
+        /*var c = 0
+        for (item in items){
+            if (item.isAchieved) c++
+        }
+        val number = "(" + c + "/" + items.size + ")" //"(0/10)"*/
+
+
     }
 
     fun description(position: Int): String {
@@ -83,7 +90,7 @@ class Achievements :  AppCompatActivity() {
     fun details(position: Int): String {
         val det = "Details: "
         when (position) {
-            1,7,12 -> return det + "Age of your collection - " + getString(items[position].name) + getString(R.string.enter)
+            1,7,12 -> return det + "Age of your collection  -  " + getString(items[position].name) + getString(R.string.enter)
 
             6 -> return det + "Beer with all the fields filled in in your collection" + getString(R.string.enter)
 

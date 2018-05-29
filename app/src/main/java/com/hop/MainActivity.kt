@@ -11,6 +11,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import com.getbase.floatingactionbutton.FloatingActionButton
+import com.hop.R.id.*
 import com.hop.brewerydb.ui.feed.BeersActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -40,13 +41,13 @@ class MainActivity : AppCompatActivity() {
         fab3.setOnClickListener {
             val intent = Intent(this@MainActivity, Achievements::class.java)
             intent.putExtra("beer_list", beerList.count())
-            var stylesCount = 0
-            var breweriesCount = 0
+            var stylesCount = 0; val stylesList: MutableList<String> = mutableListOf()
+            var breweriesCount = 0; val brewList: MutableList<String> = mutableListOf()
             var oldBool = false
             var fields_Filled = false
             for (beer in beerList) {
-                if (beer.beerStyle != "") stylesCount++
-                if (beer.brewery != "") breweriesCount++
+                if ((beer.beerStyle != "")and(!stylesList.contains(beer.beerStyle))) stylesCount++; stylesList.add(beer.beerStyle!!)
+                if ((beer.brewery != "")and(!brewList.contains(beer.brewery))) breweriesCount++; brewList.add(beer.brewery!!)
                 if ((beer.creationDate!!.length >3) and
                     (beer.creationDate!!.substring(beer.creationDate!!.length - 3).toInt() >
                             Calendar.getInstance().get(Calendar.YEAR)-9))
