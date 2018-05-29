@@ -1,10 +1,12 @@
 package com.hop
 
+import android.app.Dialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
 import android.support.v7.app.AppCompatActivity
-import android.widget.GridView
+import android.support.v7.app.AlertDialog
+import android.widget.*
 
 
 class Achievements :  AppCompatActivity() {
@@ -46,6 +48,23 @@ class Achievements :  AppCompatActivity() {
 
         gridView.onItemClickListener = object : AdapterView.OnItemClickListener {
             override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val ratingdialog = Dialog(this@Achievements)
+                ratingdialog.setContentView(R.layout.dialog_achievement)
+
+                ratingdialog.create()
+
+                val title = ratingdialog.findViewById<View>(R.id.dialog_achievement_title) as TextView
+                val descr = ratingdialog.findViewById<View>(R.id.dialog_achievement_description) as TextView
+
+                title.text = getString(items[position].name)
+                descr.text = description(position)
+
+                val dialog_layout = ratingdialog.findViewById<View>(R.id.dialog_achievement_ok) as Button
+                dialog_layout.setOnClickListener {
+                    ratingdialog.cancel()
+                }
+
+                ratingdialog.show()
             }
         }
 
@@ -55,6 +74,35 @@ class Achievements :  AppCompatActivity() {
         oldBool = intent.extras.getBoolean("oldbool", false)
         fields_Filled = intent.extras.getBoolean("fieldsFilled", false)
 
+    }
+
+    fun description(position: Int): String {
+        return details(position) + conclusion(position)
+    }
+
+    fun details(position: Int): String {
+        val det = "Details: "
+        when (position) {
+            1,7,12 -> return det + "Age of your collection - " + getString(items[position].name) + getString(R.string.enter)
+
+            6 -> return det + "Beer with all the fields filled in in your collection" + getString(R.string.enter)
+
+            else -> return det + getString(items[position].name) + " in your collection" + getString(R.string.enter)
+        }
+    }
+
+    fun conclusion(position: Int): String {
+        if (items[position].isAchieved) return getString(R.string.congrat)
+        when (position) {
+            1,7,12 -> return "You need a little more time to earn this achievement:)"
+            10 -> return "You need an old enough beer to earn this achievement:)"
+            6 -> return "You need to add a beer with all the fields filled in to earn this achievement:)"
+            else -> {
+                if (items[position].isAchieved) return getString(R.string.congrat)
+                else return "You need a few more beers to earn this achievement:)"
+            }
+
+        }
     }
 
 }
