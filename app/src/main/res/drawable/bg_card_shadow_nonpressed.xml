@@ -2,50 +2,50 @@
 <layer-list>
     <item>
         <shape>
-            <padding n1:left="1.0dip" n1:top="1.0dip" n1:right="1.0dip" n1:bottom="1.0dip"
-              xmlns:n1="http://schemas.android.com/apk/res/android" />
-            <solid n2:color="#00cccccc"
-              xmlns:n2="http://schemas.android.com/apk/res/android" />
-            <corners n3:radius="0.0dip"
-              xmlns:n3="http://schemas.android.com/apk/res/android" />
+            <padding android:left="1.0dip" android:top="1.0dip" android:right="1.0dip" android:bottom="1.0dip"
+              xmlns:android="http://schemas.android.com/apk/res/android" />
+            <solid android:color="#00cccccc"
+              xmlns:android="http://schemas.android.com/apk/res/android" />
+            <corners android:radius="0.0dip"
+              xmlns:android="http://schemas.android.com/apk/res/android" />
         </shape>
     </item>
     <item>
         <shape>
-            <padding n4:left="1.0dip" n4:top="1.0dip" n4:right="1.0dip" n4:bottom="1.0dip"
-              xmlns:n4="http://schemas.android.com/apk/res/android" />
-            <solid n5:color="#10cccccc"
-              xmlns:n5="http://schemas.android.com/apk/res/android" />
-            <corners n6:radius="0.0dip"
-              xmlns:n6="http://schemas.android.com/apk/res/android" />
+            <padding android:left="1.0dip" android:top="1.0dip" android:right="1.0dip" android:bottom="1.0dip"
+              xmlns:android="http://schemas.android.com/apk/res/android" />
+            <solid android:color="#10cccccc"
+              xmlns:android="http://schemas.android.com/apk/res/android" />
+            <corners android:radius="0.0dip"
+              xmlns:android="http://schemas.android.com/apk/res/android" />
         </shape>
     </item>
     <item>
         <shape>
-            <padding n7:left="1.0dip" n7:top="1.0dip" n7:right="1.0dip" n7:bottom="1.0dip"
-              xmlns:n7="http://schemas.android.com/apk/res/android" />
-            <solid n8:color="#20cccccc"
-              xmlns:n8="http://schemas.android.com/apk/res/android" />
-            <corners n9:radius="0.0dip"
-              xmlns:n9="http://schemas.android.com/apk/res/android" />
+            <padding android:left="1.0dip" android:top="1.0dip" android:right="1.0dip" android:bottom="1.0dip"
+              xmlns:android="http://schemas.android.com/apk/res/android" />
+            <solid android:color="#20cccccc"
+              xmlns:android="http://schemas.android.com/apk/res/android" />
+            <corners android:radius="0.0dip"
+              xmlns:android="http://schemas.android.com/apk/res/android" />
         </shape>
     </item>
     <item>
         <shape>
-            <padding n10:left="1.0dip" n10:top="1.0dip" n10:right="1.0dip" n10:bottom="1.0dip"
-              xmlns:n10="http://schemas.android.com/apk/res/android" />
-            <solid n11:color="#30cccccc"
-              xmlns:n11="http://schemas.android.com/apk/res/android" />
-            <corners n12:radius="0.0dip"
-              xmlns:n12="http://schemas.android.com/apk/res/android" />
+            <padding android:left="1.0dip" android:top="1.0dip" android:right="1.0dip" android:bottom="1.0dip"
+              xmlns:android="http://schemas.android.com/apk/res/android" />
+            <solid android:color="#30cccccc"
+              xmlns:android="http://schemas.android.com/apk/res/android" />
+            <corners android:radius="0.0dip"
+              xmlns:android="http://schemas.android.com/apk/res/android" />
         </shape>
     </item>
     <item>
         <shape>
-            <solid n13:color="@android:color/white"
-              xmlns:n13="http://schemas.android.com/apk/res/android" />
-            <corners n14:radius="0.0dip"
-              xmlns:n14="http://schemas.android.com/apk/res/android" />
+            <solid android:color="@android:color/white"
+              xmlns:android="http://schemas.android.com/apk/res/android" />
+            <corners android:radius="0.0dip"
+              xmlns:android="http://schemas.android.com/apk/res/android" />
         </shape>
     </item>
 </layer-list>

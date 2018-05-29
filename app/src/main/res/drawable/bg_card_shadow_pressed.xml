@@ -2,10 +2,10 @@
 <layer-list>
     <item>
         <shape>
-            <solid n1:color="#ffcd59"
-              xmlns:n1="http://schemas.android.com/apk/res/android" />
-            <corners n2:radius="0.0dip"
-              xmlns:n2="http://schemas.android.com/apk/res/android" />
+            <solid android:color="#ffcd59"
+              xmlns:android="http://schemas.android.com/apk/res/android" />
+            <corners android:radius="0.0dip"
+              xmlns:android="http://schemas.android.com/apk/res/android" />
         </shape>
     </item>
 </layer-list>

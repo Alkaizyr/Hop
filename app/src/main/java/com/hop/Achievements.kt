@@ -17,6 +17,8 @@ class Achievements :  AppCompatActivity() {
 
     var oldBool = false
 
+    var fields_Filled = false
+
     val items : Array<GridItem> = arrayOf(
             GridItem(R.string.first_beer,       R.drawable.ic_reward_beer_g),
             GridItem(R.string.one_month,        R.drawable.ic_reward_calendar_g),
@@ -24,6 +26,7 @@ class Achievements :  AppCompatActivity() {
             GridItem(R.string.five_styles,      R.drawable.ic_reward_style_g),
             GridItem(R.string.twenty_five_beers,      R.drawable.ic_reward_beer_g),
             GridItem(R.string.ten_breweries,    R.drawable.ic_reward_brewery_g),
+            GridItem(R.string.all_fields_filled,     R.drawable.ic_item_settings_bw),
             GridItem(R.string.three_months,     R.drawable.ic_reward_calendar_g),
             GridItem(R.string.ten_styles,       R.drawable.ic_reward_style_g),
             GridItem(R.string.fifty_beers,      R.drawable.ic_reward_beer_g),
@@ -50,6 +53,7 @@ class Achievements :  AppCompatActivity() {
         stylesCount = intent.extras.getInt("numberOfStyles", 0)
         breweriesCount = intent.extras.getInt("numberOfBreweries", 0)
         oldBool = intent.extras.getBoolean("oldbool", false)
+        fields_Filled = intent.extras.getBoolean("fieldsFilled", false)
 
     }
 

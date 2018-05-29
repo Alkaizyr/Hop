@@ -43,16 +43,22 @@ class MainActivity : AppCompatActivity() {
             var stylesCount = 0
             var breweriesCount = 0
             var oldBool = false
+            var fields_Filled = false
             for (beer in beerList) {
-                if ((beer.beerStyle != null) and  (beer.beerStyle != "")) stylesCount++
-                if ((beer.brewery != null) and  (beer.brewery != "")) breweriesCount++
-                if ((beer.creationDate != null)and(beer.creationDate!!.length >3) and
-                    (beer.creationDate!!.substring(beer.creationDate!!.length - 3).toInt() > Calendar.getInstance().get(Calendar.YEAR)-9))
+                if (beer.beerStyle != "") stylesCount++
+                if (beer.brewery != "") breweriesCount++
+                if ((beer.creationDate!!.length >3) and
+                    (beer.creationDate!!.substring(beer.creationDate!!.length - 3).toInt() >
+                            Calendar.getInstance().get(Calendar.YEAR)-9))
                     oldBool = true
+                if ((beer.beerName != "") and (beer.creationDate != "") and (beer.beerIBU != "")
+                        and (beer.beerABV != "") and (beer.beerStyle != "") and (beer.brewery != "")
+                        and (beer.description != "")) fields_Filled = true
             }
             intent.putExtra("numberOfStyles", stylesCount)
             intent.putExtra("numberOfBreweries", breweriesCount)
             intent.putExtra("oldbool", oldBool)
+            intent.putExtra("fieldsFilled", fields_Filled)
             startActivity(intent)
         }
 

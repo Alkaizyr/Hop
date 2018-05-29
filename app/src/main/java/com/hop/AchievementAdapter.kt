@@ -100,6 +100,7 @@ class AchievementAdapter// 1
         imageOpposites[R.drawable.ic_reward_country_g] = R.drawable.ic_reward_country_c
         imageOpposites[R.drawable.ic_reward_style_g] = R.drawable.ic_reward_style_c
         imageOpposites[R.drawable.ic_reward_gray] = R.drawable.ic_reward_orange
+        imageOpposites[R.drawable.ic_item_settings_bw] = R.drawable.ic_item_settings
     }
 
 
@@ -130,6 +131,7 @@ class AchievementAdapter// 1
             R.string.five_styles -> if (mContext.stylesCount >= 5) return true
             R.string.twenty_five_beers -> if (mContext.beerCount >= 25) return true
             R.string.ten_breweries -> if (mContext.breweriesCount >= 10) return true
+            R.string.all_fields_filled -> if (mContext.fields_Filled) return true
             R.string.three_months -> if (totalTime >= 60) return true
             R.string.ten_styles -> if (mContext.stylesCount >= 10) return true
             R.string.fifty_beers -> if (mContext.beerCount >= 50) return true

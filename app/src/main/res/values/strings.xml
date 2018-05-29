@@ -33,6 +33,7 @@
     <string name="ten_years_beer">10 Years Old Beer</string>
     <string name="twenty_five_breweries">25 Breweries</string>
     <string name="one_year">1 Year</string>
+    <string name="all_fields_filled">All Fields Are Filled In</string>
 
     <string name="empty_string"></string>
 </resources>
