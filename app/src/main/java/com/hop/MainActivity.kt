@@ -45,12 +45,17 @@ class MainActivity : AppCompatActivity() {
             var breweriesCount = 0; val brewList: MutableList<String> = mutableListOf()
             var oldBool = false
             var fields_Filled = false
+            var b = false; var num = -1;
             for (beer in beerList) {
                 if ((beer.beerStyle != "")and(!stylesList.contains(beer.beerStyle))) stylesCount++; stylesList.add(beer.beerStyle!!)
                 if ((beer.brewery != "")and(!brewList.contains(beer.brewery))) breweriesCount++; brewList.add(beer.brewery!!)
-                if ((beer.creationDate!!.length >3) and
-                    (beer.creationDate!!.substring(beer.creationDate!!.length - 3).toInt() >
-                            Calendar.getInstance().get(Calendar.YEAR)-9))
+                try {
+                    num = Integer.parseInt(beer.creationDate!!.substring(beer.creationDate!!.length - 4))
+                    b = true
+                } catch (e: NumberFormatException) {b = false}
+
+                if ((beer.creationDate!!.length >4) and (b) and
+                    (num > Calendar.getInstance().get(Calendar.YEAR)-9))
                     oldBool = true
                 if ((beer.beerName != "") and (beer.creationDate != "") and (beer.beerIBU != "")
                         and (beer.beerABV != "") and (beer.beerStyle != "") and (beer.brewery != "")
