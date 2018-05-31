@@ -1,5 +1,7 @@
 package com.hop
 
-class GridItem(val name: Int, val imageResource: Int) {
+class GridItem(val name: Int, val imageResOff: Int, val imageResOn: Int, logicIn: () -> (Boolean)) {
     var isAchieved = false
+    val logic = logicIn
+
 }

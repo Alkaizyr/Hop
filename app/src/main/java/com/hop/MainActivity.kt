@@ -11,7 +11,6 @@ import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import com.getbase.floatingactionbutton.FloatingActionButton
-import com.hop.R.id.*
 import com.hop.brewerydb.ui.feed.BeersActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -44,27 +43,27 @@ class MainActivity : AppCompatActivity() {
             var stylesCount = 0; val stylesList: MutableList<String> = mutableListOf()
             var breweriesCount = 0; val brewList: MutableList<String> = mutableListOf()
             var oldBool = false
-            var fields_Filled = false
-            var b = false; var num = -1;
+            var fieldsFilled = false
+            var b: Boolean; var num = -1
             for (beer in beerList) {
                 if ((beer.beerStyle != "")and(!stylesList.contains(beer.beerStyle))) stylesCount++; stylesList.add(beer.beerStyle!!)
                 if ((beer.brewery != "")and(!brewList.contains(beer.brewery))) breweriesCount++; brewList.add(beer.brewery!!)
                 try {
                     num = Integer.parseInt(beer.creationDate!!.substring(beer.creationDate!!.length - 4))
                     b = true
-                } catch (e: NumberFormatException) {b = false}
+                } catch (e: Exception) {b = false}
 
-                if ((beer.creationDate!!.length >4) and (b) and
-                    (num > Calendar.getInstance().get(Calendar.YEAR)-9))
+                if ((b) and (beer.creationDate!!.length > 4) and
+                    (num <= Calendar.getInstance().get(Calendar.YEAR)- 9))
                     oldBool = true
                 if ((beer.beerName != "") and (beer.creationDate != "") and (beer.beerIBU != "")
                         and (beer.beerABV != "") and (beer.beerStyle != "") and (beer.brewery != "")
-                        and (beer.description != "")) fields_Filled = true
+                        and (beer.description != "")) fieldsFilled = true
             }
             intent.putExtra("numberOfStyles", stylesCount)
             intent.putExtra("numberOfBreweries", breweriesCount)
             intent.putExtra("oldbool", oldBool)
-            intent.putExtra("fieldsFilled", fields_Filled)
+            intent.putExtra("fieldsFilled", fieldsFilled)
             startActivity(intent)
         }
 
@@ -90,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         btClearSearch.setOnClickListener {
             // Hide virtual key board when clicking
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(btClearSearch.getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN)
+            imm.hideSoftInputFromWindow(btClearSearch.windowToken, InputMethodManager.RESULT_UNCHANGED_SHOWN)
 
             editTextversion.clearFocus()
             editTextversion.setText("")
