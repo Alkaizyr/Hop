@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector>
+    <item android:state_pressed="true" android:drawable="@drawable/bg_button_dialog_pressed"
+      xmlns:android="http://schemas.android.com/apk/res/android" />
+    <item android:drawable="@drawable/bg_button_dialog_pressed" android:state_activated="true"
+      xmlns:android="http://schemas.android.com/apk/res/android" />
+    <item android:drawable="@drawable/bg_button_dialog_nonpressed"
+      xmlns:android="http://schemas.android.com/apk/res/android" />
+</selector>

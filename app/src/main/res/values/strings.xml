@@ -18,17 +18,24 @@
     <string name="title_activity_add_wine">AddWineActivity</string>
 
 
-    <string name="First_Beer">First Beer</string>
+    <string name="first_beer">First Beer</string>
 
     <string name="one_month">1 Month</string>
     <string name="ten_beers">10 Beers</string>
     <string name="ten_countries">10 Countries</string>
     <string name="five_styles">5 Styles</string>
+    <string name="twenty_five_beers">25 Beers</string>
     <string name="ten_breweries">10 Breweries</string>
     <string name="three_months">3 Months</string>
     <string name="ten_styles">10 Styles</string>
     <string name="twenty_countries">20 Countries</string>
     <string name="fifty_beers">50 Beers</string>
+    <string name="ten_years_beer">10 Years Old Beer</string>
+    <string name="twenty_five_breweries">25 Breweries</string>
+    <string name="one_year">1 Year</string>
+    <string name="all_fields_filled">All Fields Are Filled In</string>
 
-    <string name="empty_string"></string>
+    <string name="details">Details: </string>
+    <string name="enter">\n\n</string>
+    <string name="congrat">Congratulations! </string>
 </resources>

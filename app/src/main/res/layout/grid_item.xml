@@ -15,11 +15,13 @@
             android:layout_marginTop="16.0dip"
             android:layout_marginBottom="8.0dip"
             android:src="@drawable/ic_reward_beer_c" />
-        <ImageView android:id="@+id/imageview_favorite"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+        <ImageView android:id="@+id/imageview_achieved"
+            android:layout_width="64.0dip"
+            android:layout_height="64.0dip"
+            android:layout_marginTop="16.0dip"
+            android:layout_marginBottom="8.0dip"
             android:layout_gravity="bottom|right"
-            android:src="@drawable/ic_action_ach_new_lo" />
+            android:src="@drawable/star_disabled" />
     </FrameLayout>
     <LinearLayout android:orientation="vertical"
         android:id="@+id/ach_item_layout"
